@@ -11,7 +11,6 @@ urllib3
 idna
 certifi
 pyaudio
-google-cloud-storage
 google-api-core==1.26.0
 google-api-python-client==1.12.8
 google-auth==1.27.0
