@@ -1,32 +1,15 @@
-from flask import Flask, render_template, request, redirect
-import speech_recognition as sr
-
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-
-@app.route("/", methods=["GET", "POST"])
+@app.route('/')
 def index():
-    transcript = ""
-    if request.method == "POST":
-        print("FORM DATA RECEIVED")
+   return render_template('index.html')
 
-        #If file upload is left blank, return back to home page.
-        if "file" not in request.files:
-            return redirect(request.url)
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+   if request.method == 'POST':
+      result = request.form
+      return render_template("result.html",result = result)
 
-        file = request.files["file"]
-        if file.filename == "":
-            return redirect(request.url)
-
-        #Once file is uploaded, then parse it through speech recognizer by Google and transcribe the text on the page. 
-        if file:
-            recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(file)
-            
-            with audioFile as source:
-                data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data, key=None)
-            return render_template('index.html', transcript=transcript)
-    
-    if __name__ == "__main__":
-        app.run(debug=True)
+if __name__ == '__main__':
+   app.run(debug = True)
