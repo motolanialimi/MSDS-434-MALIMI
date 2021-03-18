@@ -27,3 +27,6 @@ h1, p, input {
     font-size: 18px;
     width: 500px;
 }
+body  {
+    background-image: url("/static/image/Listening_to_Music_Mindfully_1200x630.jpg");
+}
