@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AUDIO TRANSCRIBED by Motolani Alimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Listen.css') }}" />
+</head>
+<body>
+<div id="speechContainer">
+    <h1>UPLOAD AUDIO FILE(.WAV)</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <br>
+        <input type="submit" id="submitButton" value="TRANSCRIBE SPEECH TO TEXT"/>
+    </form>
+
+    {% if transcript != "" %}
+        <div id="speechTranscriptContainer">
+            <h1>Transcript</h1>
+            <p id="speechText">{{ transcript }}</p>
+        </div>
+    {% endif %}
+</div>
+<footer>
+    <a href="https://github.com/motolanialimi/NU_434_Project1">
+         </a>
+</footer>
+</body>
+</html>
