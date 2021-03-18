@@ -26,7 +26,7 @@ def index():
             with audioFile as source:
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
-            return render_template('Listen.html', transcript=transcript)
+            return render_template('index.html', transcript=transcript)
     
     if __name__ == "__main__":
         app.run(debug=True, threaded=True)
